@@ -1,8 +1,8 @@
 export const profile = {
 	fullName: 'Cristhian Guillermo Hernandez Umbarila',
-	title: '',
-	institute: '',
-	author_name: '', // Author name to be highlighted in the papers section
+	title: 'Estudiante de ingenieria de sistemas',
+	institute: 'Universidad El Bosque',
+	author_name: 'Cristhian Guillermo Hernandez Umbarila', // Author name to be highlighted in the papers section
 	research_areas: [
 		// { title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
 	],
