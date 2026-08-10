@@ -4,7 +4,9 @@ export const profile = {
 	institute: '',
 	author_name: 'Cristhian Guillermo Hernandez Umbarila', // Author name to be highlighted in the papers section
 	research_areas: [
-		 { title: '¿Por qué creo que Bases de Datos 1 te va a ayudar en tu vida profesional? ', description: 'Bases de Datos 1 me ayudará a comprender cómo almacenar, organizar y administrar información de manera eficiente. Como programador, estos conocimientos serán muy buenos para desarrollar aplicaciones y sistemas funcionales. También aprenderé SQL y a trabajar con diferentes gestores de bases de datos. Esto me permitirá resolver problemas reales y mejorar mis oportunidades en el campo profesional.', field: 'Pregunta' },
+		 { title: '¿Por qué creo que Bases de Datos 1 te va a ayudar en tu vida profesional? ', description: 'Bases de Datos 1 me ayudará a comprender cómo almacenar, organizar y administrar información de manera eficiente. Como programador, estos conocimientos serán muy buenos para desarrollar aplicaciones y sistemas funcionales. ', field: 'Pregunta' },
+		 { title: '¿Por qué me gusta la carrera? ', description: 'Me encanta porque me permite sacar mi lado mas matemático y lógico.', field: 'Pregunta' },
+	
 	],
 }
 
@@ -24,7 +26,7 @@ export const social = {
 
 export const presentation = {
 	youtube_link: 'https://www.youtube.com/watch?v=_B_V8IaiYFg',
-	description: 'Presentación sobre mi investigación en bases de datos.',
+	description: 'Conoce más de mi trabajo académico en el apartado de "Blogs".',
 }
 
 export const template = {
