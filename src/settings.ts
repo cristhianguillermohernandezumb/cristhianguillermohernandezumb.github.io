@@ -22,6 +22,11 @@ export const social = {
 	orcid: '',
 }
 
+export const presentation = {
+	youtube_link: 'https://www.youtube.com/watch?v=_B_V8IaiYFg',
+	description: 'Presentación sobre mi investigación en bases de datos.',
+}
+
 export const template = {
 	website_url: 'https://localhost:4321', // Astro needs to know your site’s deployed URL to generate a sitemap. It must start with http:// or https://
 	menu_left: false,
