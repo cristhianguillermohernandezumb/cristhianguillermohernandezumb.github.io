@@ -25,7 +25,7 @@ export const social = {
 }
 
 export const presentation = {
-	youtube_link: 'https://www.youtube.com/watch?v=_B_V8IaiYFg',
+	youtube_link: 'https://youtube.com/shorts/6TRQKsEwrcU',
 	description: 'Conoce más de mi trabajo académico en el apartado de "Blogs".',
 }
 
