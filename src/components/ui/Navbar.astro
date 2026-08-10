@@ -37,6 +37,15 @@ const {fullName, title} = profile
 					<li>
                         <a href={`${template.base}/cv`} class='text-lg'>CV</a>
                     </li>
+					<li tabindex="0">
+						<a class='text-lg'>Evidencias</a>
+						<ul class='p-2'>
+							<li><a href={`${template.base}/evidencias/modelado`} class='text-base'>Modelado</a></li>
+							<li><a href={`${template.base}/evidencias/normalizacion`} class='text-base'>Normalización</a></li>
+							<li><a href={`${template.base}/evidencias/sql`} class='text-base'>SQL</a></li>
+							<li><a href={`${template.base}/evidencias/proyecto`} class='text-base'>Proyecto</a></li>
+						</ul>
+					</li>
                     {isBlogPopulated &&
 					<li>
                         <a href={`${template.base}/blog/1`} class='text-lg'>Blog</a>
