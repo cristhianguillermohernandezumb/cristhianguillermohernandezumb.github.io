@@ -1,12 +1,54 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+
+const sections = [
+	{
+		title: 'Título de la sección 1',
+		badge: 'Modelado',
+		date: 'Fecha',
+		description: 'Escribe aquí la descripción de la primera sección.',
+		link: '#',
+	},
+	{
+		title: 'Título de la sección 2',
+		badge: 'Modelado',
+		date: 'Fecha',
+		description: 'Escribe aquí la descripción de la segunda sección.',
+		link: '#',
+	},
+]
 ---
 
 <Layout>
 	<section class='py-12'>
 		<div class='max-w-screen-lg mx-auto'>
-			<h1 class='text-3xl font-bold mb-6'>Modelado</h1>
-			<p class='text-lg'>Página de evidencias para Modelado.</p>
+			<h1 class='text-3xl font-bold mb-8'>Modelado</h1>
+			<div class='grid gap-8'>
+				{
+					sections.map(section => (
+						<article class='card bg-base-200 transition-all'>
+							<div class='card-body'>
+								<div class='flex justify-between items-start gap-4'>
+									<h2 class='card-title text-xl'>{section.title}</h2>
+									<div class='badge badge-accent badge-outline p-4'>
+										{section.badge}
+									</div>
+								</div>
+								<p class='text-sm text-base-content/71'>{section.date}</p>
+								<p class='mt-4'>{section.description}</p>
+								<div class='card-actions justify-end'>
+									<a
+										href={section.link}
+										class='btn btn-sm btn-secondary text-secondary-content'
+									>
+										Read More
+									</a>
+								</div>
+							</div>
+						</article>
+					))
+				}
+			</div>
 		</div>
 	</section>
 </Layout>
