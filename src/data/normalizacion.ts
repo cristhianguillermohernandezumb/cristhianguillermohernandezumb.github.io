@@ -8,8 +8,8 @@ export const normalizacionSections = [
 	},
 	{
 		title: 'Ejercicio de normalizacion 2',
-		badge: '04/10/2026',
-		date: 'Fecha',
+		badge: 'Normalización',
+		date: '01/10/2026',
 		description: 'Normalizacion de modelo relacional para una veterinaria hasta la forma normal BCFN',
 		link: 'https://docs.google.com/spreadsheets/d/1YbcsBnzc48PRFIIvhPcGtm6LSZ4_37zCyzk94SrobvM/edit?usp=sharing',
 	},

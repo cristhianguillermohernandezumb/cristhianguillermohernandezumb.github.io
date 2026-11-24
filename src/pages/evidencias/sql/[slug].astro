@@ -1,0 +1,65 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { sqlSections } from '@/data/sql'
+
+export function getStaticPaths() {
+	return sqlSections.map(section => ({
+		params: { slug: section.slug },
+		props: { section },
+	}))
+}
+
+const { section } = Astro.props
+const imageUrl = section.imagePath
+	? `${import.meta.env.BASE_URL}${section.imagePath}`
+	: ''
+---
+
+<Layout title={section.title}>
+	<section class='py-12'>
+		<div class='max-w-screen-lg mx-auto'>
+			<a
+				href={`${import.meta.env.BASE_URL}evidencias/sql/`}
+				class='btn btn-ghost btn-sm mb-6'
+			>
+				Volver a SQL
+			</a>
+			<article class='card bg-base-200'>
+				<div class='card-body'>
+					<div class='flex flex-wrap justify-between items-start gap-4'>
+						<h1 class='card-title text-3xl'>{section.title}</h1>
+						<div class='badge badge-accent badge-outline p-4'>
+							{section.badge}
+						</div>
+					</div>
+					<p class='text-sm text-base-content/71'>{section.date}</p>
+					<p class='mt-4'>{section.description}</p>
+					{
+						imageUrl ? (
+							<a
+								href={imageUrl}
+								target='_blank'
+								rel='noopener noreferrer'
+								class='mt-4 block'
+								aria-label={`Abrir imagen completa: ${section.imageAlt}`}
+							>
+								<img
+									src={imageUrl}
+									alt={section.imageAlt}
+									class='mx-auto max-h-[75vh] max-w-full rounded-lg object-contain'
+								/>
+								<p class='mt-2 text-center text-sm text-base-content/70'>
+									Pulsa la imagen para abrirla en una pestaña completa.
+								</p>
+							</a>
+						) : (
+							<p class='mt-4 text-base-content/70'>
+								Agrega la ruta de la imagen en src/data/sql.ts para mostrarla aquí.
+							</p>
+						)
+					}
+				</div>
+			</article>
+		</div>
+	</section>
+</Layout>
