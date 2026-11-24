@@ -1,22 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-
-const sections = [
-	{
-		title: 'Título de la sección 1',
-		badge: 'Modelado',
-		date: 'Fecha',
-		description: 'Escribe aquí la descripción de la primera sección.',
-		link: '#',
-	},
-	{
-		title: 'Título de la sección 2',
-		badge: 'Modelado',
-		date: 'Fecha',
-		description: 'Escribe aquí la descripción de la segunda sección.',
-		link: '#',
-	},
-]
+import { modeladoSections } from '@/data/modelado'
 ---
 
 <Layout>
@@ -25,7 +9,7 @@ const sections = [
 			<h1 class='text-3xl font-bold mb-8'>Modelado</h1>
 			<div class='grid gap-8'>
 				{
-					sections.map(section => (
+					modeladoSections.map(section => (
 						<article class='card bg-base-200 transition-all'>
 							<div class='card-body'>
 								<div class='flex justify-between items-start gap-4'>
@@ -38,7 +22,7 @@ const sections = [
 								<p class='mt-4'>{section.description}</p>
 								<div class='card-actions justify-end'>
 									<a
-										href={section.link}
+										href={`${import.meta.env.BASE_URL}evidencias/modelado/${section.slug}/`}
 										class='btn btn-sm btn-secondary text-secondary-content'
 									>
 										Read More
