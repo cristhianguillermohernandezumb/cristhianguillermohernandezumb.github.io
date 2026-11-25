@@ -34,7 +34,7 @@ export const projectSections: ProjectSection[] = [
 		badge: 'Proyecto',
 		date: '01/11/2026',
 		description: 'Modelo entidad relacion extendido de una aplicacion web para realizar torneos a nivel de bogotá',
-		imagePath: 'images/modelado/MODELO ER EXTENDIDO.drawio',
+		imagePath: 'images/modelado/MODELO ER EXTENDIDO.drawio.png',
 		imageAlt: 'Imagen del apartado 2',
 	},
 	{
@@ -44,7 +44,7 @@ export const projectSections: ProjectSection[] = [
 		badge: 'Proyecto',
 		date: '01/11/2026',
 		description: 'Modelo Reducido a Tablas de una aplicacion web para realizar torneos a nivel de bogotá',
-		imagePath: 'images/modelado/Reduccion a tablas proyecto.drawio(5)',
+		imagePath: 'images/modelado/Reduccion a tablas proyecto.drawio(5).png',
 		imageAlt: 'Imagen del apartado 3',
 	},
 	{

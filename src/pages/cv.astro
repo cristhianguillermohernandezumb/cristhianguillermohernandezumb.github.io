@@ -1,89 +1,137 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { experiences, education, skills, publications } from '../data/cv'
-import CvTimeline from '@/components/ui/CvTimeline.astro'
-
-import type { Experience, Education, Publication } from '../types/cv'
-import List from '@/components/ui/List.astro'
-import PublicationsList from '@/components/ui/PublicationsList.astro'
-
-let orderedExperiences: Experience[] = []
-let orderedEducations: Education[] = []
-let orderedPublications: Publication[] = []
-
-const orderElement = <T extends { time: string }>(a: T, b: T) => {
-  const presentValues = ['present', 'now', 'current', 'today']
-  if (
-			presentValues.includes(
-				(a['time'] as string)?.split(' - ')[1]?.toLowerCase()
-			)
-		) {
-			// If the date is 'present', it should be the first element
-			return -1
-		}
-		const dateA = new Date((a['time'] as string)?.split(' - ')[1])
-		const dateB = new Date((b['time'] as string)?.split(' - ')[1])
-		return dateB.getTime() - dateA.getTime()
-}
-
-if (experiences.length > 0) {
-	orderedExperiences = experiences.sort((a, b) => {
-		return orderElement(a, b)
-	})
-}
-
-if (education.length > 0) {
-	orderedEducations = education.sort((a, b) => {
-		return orderElement(a, b)
-	})
-}
-
-if (publications.length > 0) {
-	orderedPublications = publications.sort((a, b) => {
-		return orderElement(a, b)
-	})
-}
+import { profile, social } from '@/settings'
 ---
 
-<Layout>
-	{
-		orderedEducations.length > 0 && (
-			<section class='mb-12'>
-				<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
-					Education
-				</h2>
-				<CvTimeline elements={orderedEducations} colored={true} />
-			</section>
-		)
-	}
+<Layout title={`CV | ${profile.fullName}`}>
+	<div class='max-w-4xl mx-auto w-full'>
+		<header class='mb-10'>
+			<p class='text-accent font-semibold'>Curriculum Vitae</p>
+			<h1 class='text-4xl font-bold mt-2'>{profile.fullName}</h1>
+			<p class='text-xl text-base-content/75 mt-3'>
+				Estudiante de Ingeniería de Sistemas · 4.º semestre
+			</p>
+			<div class='flex flex-wrap gap-4 mt-5'>
+				{social.email && (
+					<a class='link link-accent' href={`mailto:${social.email}`}>
+						{social.email}
+					</a>
+				)}
+				{social.github && (
+					<a
+						class='link link-accent'
+						href={social.github}
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						GitHub
+					</a>
+				)}
+			</div>
+		</header>
 
-	{
-		orderedExperiences.length > 0 && (
-			<section class='mb-12'>
-				<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
-					Experiences
-				</h2>
-				<CvTimeline elements={orderedExperiences} colored={true} />
-			</section>
-		)
-	}
+		<section class='mb-10'>
+			<h2 class='text-2xl font-bold mb-4 border-b pb-2'>Perfil</h2>
+			<p class='leading-relaxed text-base-content/80'>
+				Estudiante de Ingeniería de Sistemas en formación, con conocimientos de
+				programación en Java, TypeScript y Python. Interesado en el desarrollo de
+				software y las bases de datos. Se destaca por su pensamiento lógico,
+				responsabilidad y disposición para aprender y colaborar en equipo.
+			</p>
+		</section>
 
-	{
-		orderedPublications.length > 0 && (
-			<section class='mb-12'>
-				<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
-					Last publications
-				</h2>
-				<PublicationsList elements={orderedPublications}/>
-			</section>
-		)
-	}
+		<section class='mb-10'>
+			<h2 class='text-2xl font-bold mb-4 border-b pb-2'>Formación académica</h2>
+			<article class='card bg-base-200'>
+				<div class='card-body'>
+					<h3 class='card-title'>Ingeniería de Sistemas</h3>
+					<p class='text-base-content/75'>En curso · 4.º semestre</p>
+				</div>
+			</article>
+		</section>
 
-	{
-		skills.length > 0 && (
-			<section class='mb-12'>
-				<List listTitle='Skills' listItems={skills}/>
-			</section>
-		)
-	}
+		<section class='mb-10'>
+			<h2 class='text-2xl font-bold mb-4 border-b pb-2'>
+				Habilidades técnicas
+			</h2>
+			<div class='grid gap-4 sm:grid-cols-2'>
+				<article class='card bg-base-200'>
+					<div class='card-body'>
+						<h3 class='card-title'>Lenguajes de programación</h3>
+						<p>Java, TypeScript y Python.</p>
+					</div>
+				</article>
+				<article class='card bg-base-200'>
+					<div class='card-body'>
+						<h3 class='card-title'>Bases de datos</h3>
+						<p>
+							Modelado entidad-relación, normalización y fundamentos de
+							consultas SQL.
+						</p>
+					</div>
+				</article>
+				<article class='card bg-base-200'>
+					<div class='card-body'>
+						<h3 class='card-title'>Programación</h3>
+						<p>
+							Fundamentos de programación, pensamiento lógico y resolución de
+							problemas.
+						</p>
+					</div>
+				</article>
+				<article class='card bg-base-200'>
+					<div class='card-body'>
+						<h3 class='card-title'>Herramientas de desarrollo</h3>
+						<p>Git y GitHub para control de versiones y trabajo con proyectos.</p>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class='mb-10'>
+			<h2 class='text-2xl font-bold mb-4 border-b pb-2'>
+				Proyectos académicos
+			</h2>
+			<div class='grid gap-4'>
+				<article class='card bg-base-200'>
+					<div class='card-body'>
+						<h3 class='card-title'>
+							Modelado de base de datos para una empresa de cine
+						</h3>
+						<p>
+							Elaboración de un modelo entidad-relación y su transformación a
+							tablas como parte del diseño de una base de datos.
+						</p>
+					</div>
+				</article>
+				<article class='card bg-base-200'>
+					<div class='card-body'>
+						<h3 class='card-title'>Prácticas de consultas SQL</h3>
+						<p>
+							Ejercicios académicos de consulta y organización de información
+							relacional.
+						</p>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section>
+			<h2 class='text-2xl font-bold mb-4 border-b pb-2'>
+				Habilidades personales
+			</h2>
+			<div class='flex flex-wrap gap-3'>
+				{
+					[
+						'Pensamiento lógico',
+						'Resolución de problemas',
+						'Trabajo en equipo',
+						'Responsabilidad',
+						'Aprendizaje continuo',
+						'Organización',
+					].map(skill => <span class='badge badge-accent badge-outline p-4'>{skill}</span>)
+				}
+			</div>
+		</section>
+	</div>
 </Layout>
